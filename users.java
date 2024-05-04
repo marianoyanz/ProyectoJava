@@ -3,7 +3,7 @@ public class users {
     int id;
     String name;
     String dni;
-    String adress:;
+    String adress;
     String location;
     int type;
     String password;
