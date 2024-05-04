@@ -1,5 +1,17 @@
 //CREATE DE LA BASE
-/*
+
+CREATE DATABASE ProyectoJava
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Spanish_Argentina.1252'
+    LC_CTYPE = 'Spanish_Argentina.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
 
 --------------------------------------            Create de las TABLAS:            -------------------------------------------------
 
@@ -11,7 +23,7 @@
       brand integer NOT NULL,
       stock integer NOT NULL,
       purchaseprice double precision NOT NULL,
-      productprice double precision NOT NULL,
+      saleprice double precision NOT NULL,
       active boolean NOT NULL,
       datecreate time without time zone NOT NULL,
       CONSTRAINT pkey_products PRIMARY KEY (id)
@@ -19,10 +31,30 @@
     WITH (
       OIDS=FALSE
     );
+
+    --PARA MI DEBERIAMOS HACERLO ASI AL ID
+
+        CREATE TABLE products
+        (
+          id SERIAL  NOT NULL,
+          description character varying NOT NULL,
+          brand integer NOT NULL,
+          stock integer NOT NULL,
+          purchaseprice double precision NOT NULL,
+          productprice double precision NOT NULL,
+          active boolean NOT NULL,
+          datecreate time without time zone NOT NULL,
+          CONSTRAINT pkey_products PRIMARY KEY (id)
+        )
+        WITH (
+          OIDS=FALSE
+        );
+        ALTER TABLE products OWNER TO postgres;
+
     ALTER TABLE products OWNER TO postgres;
 
     --PRODUCTTYPE
-    CREATE TABLE producttype
+    CREATE TABLE producttypes
     (
       "name" character varying NOT NULL,
       id integer NOT NULL,
@@ -100,7 +132,7 @@
       ALTER TABLE salestatus OWNER TO postgres;
 
     --USERTYPE
-    CREATE TABLE usertype
+    CREATE TABLE usertypes
     (
       id integer NOT NULL,
       "name" character varying,
@@ -128,4 +160,4 @@
     );
     ALTER TABLE users OWNER TO postgres;
 
-*/
+
