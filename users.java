@@ -63,4 +63,15 @@ public class users {
     public String getPassword() {
         return password;
     }
+
+    public users(int id,String name,String dni,String location,String adress,int type,String password)
+        {
+            this.id = id;
+            this.name = name;
+            this.dni = dni;
+            this.location = location;
+            this.adress = adress;
+            this.type = type;
+            this.password = password;
+        }
 }
