@@ -1,1 +1,131 @@
+//CREATE DE LA BASE
+/*
 
+--------------------------------------            Create de las TABLAS:            -------------------------------------------------
+
+    --PRODUCTS
+    CREATE TABLE products
+    (
+      id character varying NOT NULL,
+      description character varying NOT NULL,
+      brand integer NOT NULL,
+      stock integer NOT NULL,
+      purchaseprice double precision NOT NULL,
+      productprice double precision NOT NULL,
+      active boolean NOT NULL,
+      datecreate time without time zone NOT NULL,
+      CONSTRAINT pkey_products PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE products OWNER TO postgres;
+
+    --PRODUCTTYPE
+    CREATE TABLE producttype
+    (
+      "name" character varying NOT NULL,
+      id integer NOT NULL,
+      CONSTRAINT pkey_producttype PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE producttype OWNER TO postgres;
+
+    --BRANDS
+    CREATE TABLE brands
+    (
+      id integer NOT NULL,
+      "name" character varying NOT NULL,
+      CONSTRAINT pkey_brand PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE brands OWNER TO postgres;
+
+    --SALELINES
+    CREATE TABLE salelines
+    (
+      id character varying NOT NULL,
+      product character varying NOT NULL,
+      units integer NOT NULL,
+      total double precision NOT NULL,
+      CONSTRAINT pkey_saleline PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE salelines OWNER TO postgres;
+
+    --PAYMENTMETHODS
+    CREATE TABLE paymentmethods
+    (
+      id integer NOT NULL,
+      "name" character varying NOT NULL,
+      CONSTRAINT pkey_paymentmethod PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE paymentmethods OWNER TO postgres;
+
+    --SALES
+    CREATE TABLE sales
+    (
+      id character varying NOT NULL,
+      paymentmethod integer NOT NULL,
+      date time without time zone NOT NULL,
+      amount double precision NOT NULL,
+      customer integer NOT NULL,
+      status integer,
+      CONSTRAINT pkey_sale PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE sales OWNER TO postgres;
+
+    --SALESTATUS
+    CREATE TABLE salestatus
+      (
+        id integer NOT NULL,
+        "name" character varying,
+        CONSTRAINT pkey_salestatus PRIMARY KEY (id)
+      )
+      WITH (
+        OIDS=FALSE
+      );
+      ALTER TABLE salestatus OWNER TO postgres;
+
+    --USERTYPE
+    CREATE TABLE usertype
+    (
+      id integer NOT NULL,
+      "name" character varying,
+      CONSTRAINT pkey_usertype PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE usertype OWNER TO postgres;
+
+    --USERS
+    CREATE TABLE users
+    (
+      id integer NOT NULL,
+      "name" character varying NOT NULL,
+      dni character varying NOT NULL,
+      "location" character varying NOT NULL,
+      adress character varying NOT NULL,
+      "type" integer NOT NULL,
+      "password" character varying NOT NULL,
+      CONSTRAINT pkey_user PRIMARY KEY (id)
+    )
+    WITH (
+      OIDS=FALSE
+    );
+    ALTER TABLE users OWNER TO postgres;
+
+*/
