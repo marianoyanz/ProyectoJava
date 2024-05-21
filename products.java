@@ -11,6 +11,13 @@ public class products {
     Boolean active;
     Date dateCreate;
 
+    public products(int id, String description, int stock, double salesprice) {
+        this.id=id;
+        this.description=description;
+        this.stock=stock;
+        this.salesprice=salesprice;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

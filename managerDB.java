@@ -23,12 +23,12 @@ public class managerDB {
         return con;
     }
 
-    public users buscar_cliente(@NotNull Connection conn, int id){
+    public products buscar_product(@NotNull Connection conn, int id){
 
-        users usuario = null;
+        products prod = null;
 
         try {
-            String customer = "select * from users where id = ?;";
+            String customer = "select * from products where id = ?;";
 
             PreparedStatement ps = conn.prepareStatement(customer);
 
@@ -36,17 +36,13 @@ public class managerDB {
 
             ResultSet datos = ps.executeQuery();  //metodo de mierda
 
-            if ( datos.next() )
-
-                usuario = new users(
+            if ( datos.next() ) {
+                        prod = new products(
                         datos.getInt("id"),
-                        datos.getString("name"),
-                        datos.getString("dni"),
-                        datos.getString("location"),
-                        datos.getString("adress"),
-                        datos.getInt("type"),
-                        datos.getString("password")
-                );
+                        datos.getString("description"),
+                        datos.getInt("stock"),
+                        datos.getDouble("salesprice")  );
+            }
 
         }
 
@@ -56,7 +52,7 @@ public class managerDB {
 
         }
 
-        return usuario;
+        return prod;
 
     }
 }
