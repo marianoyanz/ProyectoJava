@@ -13,7 +13,7 @@ public class User {
     private String id;
 
     @Column(name = "name", nullable = false, length = Integer.MAX_VALUE)
-    private String name;
+    private String name; //oo
 
     @Column(name = "dni", nullable = false, length = Integer.MAX_VALUE)
     private String dni;
